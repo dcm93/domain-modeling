@@ -175,7 +175,7 @@ public class Family {
         members.append(spouse1)
         members.append(spouse2)
     }
-  }
+}
   
   public func haveChild(child: Person) -> Bool {
     var isLegal = true
@@ -184,16 +184,21 @@ public class Family {
             isLegal = false
         }
     }
+    if(isLegal){
+        members.append(child)
+    }
     return isLegal
   }
   
   public func householdIncome() -> Int {
     var result: Int = 0
     for member in members{
-        result = result + member.job!.calculateIncome()
+        let value = member.job!.calculateIncome(0)
+        result = result + value
+        print(value)
     }
     return result
-  }
+    }
 }
 //
 //
